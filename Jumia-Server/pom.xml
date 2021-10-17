@@ -12,7 +12,7 @@
 	<groupId>com.jumia</groupId>
 	<artifactId>JumiaServiceExercise</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>JumiaServiceExercise</name>
 	<description>Jumia Service Exercise</description>
 	<properties>
@@ -37,10 +37,21 @@
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.xerial</groupId>
@@ -53,6 +64,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.21.0</version>
+				<configuration>
+					<includes>
+						<include>EmsApplicationTests.java</include>
+					</includes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
