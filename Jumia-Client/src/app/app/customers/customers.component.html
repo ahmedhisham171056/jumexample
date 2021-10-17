@@ -1,0 +1,35 @@
+<header>
+    <nav class="navbar navbar-default">
+        <a class="navbar-brand" href="#">Jumia Phone Status App!</a>
+    </nav>
+</header>
+
+<div class="container mt-5">
+    <div class="row">
+        <nav class="navbar">
+            <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm">
+        </nav>
+        <table class="table">
+            <thead calss="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>State</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let customer of customers | filter:filterTerm | paginate: { itemsPerPage: 10, currentPage: page }; let i = index">
+                    <td>{{customer.id}}</td>
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.phone}}</td>
+                    <td>{{customer.state}}</td>
+                    <td>{{customer.countryName}}</td>
+                </tr>
+            </tbody>
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </table>
+    </div>
+</div>
