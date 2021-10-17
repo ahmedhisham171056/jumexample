@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jumia.exercise.dto.CustomerDto;
@@ -27,10 +25,11 @@ public class CustomerController {
 
 	@CrossOrigin(origins = {"http://localhost:8080" , "http://localhost:4200"})
 	@GetMapping(path = "/customers")
-	public ResponseEntity<List<CustomerDto>> getAllCustomer(
+	public ResponseEntity<List<CustomerDto>> getAllCustomer(/*
 			@RequestParam(name = "page", defaultValue = "0", required = false) int page,
-			@RequestParam(name = "size", defaultValue = "100", required = false) int size) {
-		List<Customer> customers = customerService.getAllCustomers(PageRequest.of(page, size));
+			@RequestParam(name = "size", defaultValue = "100", required = false) int size*/) {
+//		List<Customer> customers = customerService.getAllCustomers(PageRequest.of(page, size));
+		List<Customer> customers = customerService.getAllCustomers();
 		List<CustomerDto> customerDtoList = new ArrayList<>();
 		customerDtoList = countryInfoService.applyPhoneValidation(customers);
 		System.out.println(customerDtoList);
