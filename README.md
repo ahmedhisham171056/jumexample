@@ -35,5 +35,10 @@ docker-compose up
 from any browser, navigate to localhost:4200
 
 --> a list of all customers, and all provided numbers are shown.
+
 --> use Search bar to look for any Country / Status / Customer Name or phone number
+
+--> use PostMan test backend customer retrieval by localhost:8080/customers
+
+--> sample unit tests are added for API testing 
 
